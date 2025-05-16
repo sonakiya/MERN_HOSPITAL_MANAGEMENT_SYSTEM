@@ -6,9 +6,9 @@ cloudinary.v2.config({
   api_key:process.env.CLOUDINARY_API_KEY,
   api_secret:process.env.CLOUDINARY_API_SECRET
 })
-
+ 
 if(process.env.NODE_ENV !== "production"){
-app.listen(process.env.PORT,()=>{
+app.listen(process.env.PORT,()=>{ 
   console.log(`Server run on port ${process.env.PORT }`);
   
 })
