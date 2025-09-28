@@ -100,3 +100,15 @@ export const deleteAppointment = catchAsyncErrors(async(req,res,next)=>{
   })
 
 })
+
+// Get logged-in patient's appointments
+export const getMyAppointments = catchAsyncErrors(async (req, res, next) => {
+  const patientId = req.user._id; // Logged-in patient's id
+
+  const appointments = await Appointment.find({ patientId }).sort({ appointment_date: -1 });
+
+  res.status(200).json({
+    success: true,
+    appointments
+  });
+});
